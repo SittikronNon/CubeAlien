@@ -4,30 +4,24 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    public CharacterController controller;
+    public float speed = 5f;
+    private float rotationSpeed = 100f;
 
-    public Transform cam;
-    public float speed = 6f;
+    private Rigidbody rb;
 
-    public float turnSmoothTime = 0.1f;
-    private float turnSmmothVelocity;
-
-    public void Update()
+    // Start is called before the first frame update
+    void Start()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        rb = GetComponent<Rigidbody>();
+    }
 
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+    
 
-        if(direction.magnitude >= 0.1f)
-        {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmmothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir * speed * Time.deltaTime);
-        }
-
+    private void FixedUpdate()
+    {
+        float vertAxis = Input.GetAxis("Vertical");
+        float horAxis = Input.GetAxis("Horizontal");
+        rb.velocity = (transform.forward * vertAxis) * speed * Time.deltaTime;
+        transform.Rotate((transform.up * horAxis) * rotationSpeed * Time.deltaTime);
     }
 }
