@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     public float speed = 5f;
-    private float rotationSpeed = 100f;
+    private float rotationSpeed = 150f;
 
     private Rigidbody rb;
 
@@ -24,4 +24,6 @@ public class CharacterMovement : MonoBehaviour
         rb.velocity = (transform.forward * vertAxis) * speed * Time.deltaTime;
         transform.Rotate((transform.up * horAxis) * rotationSpeed * Time.deltaTime);
     }
+
+   
 }
