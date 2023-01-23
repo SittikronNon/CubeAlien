@@ -17,12 +17,33 @@ public class Bullets : MonoBehaviour
     }
     public void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider && collision.collider.tag != "Player" && collision.collider.tag != "Bullet")
+        if (collision.collider.tag == "Enemy")
+        {
+            Damage(collision.transform);
+
+            GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+            Destroy(effectIns, 3f);
+
+            Destroy(gameObject);
+        }
+
+        else if (collision.collider && collision.collider.tag != "Player" && collision.collider.tag != "Bullet")
         {
             GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(effectIns, 3f);
 
             Destroy(gameObject);
+        }
+        
+    }
+
+    public void Damage(Transform enemy)
+    {
+        Enemy e = enemy.GetComponent<Enemy>();
+
+        if (e != null)
+        {
+            e.TakeDamage(damage);
         }
     }
 }

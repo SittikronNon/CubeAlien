@@ -6,7 +6,6 @@ public class CollectPuzzle : MonoBehaviour
 {
     public GameObject door;
     public GameObject explosion;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -15,6 +14,7 @@ public class CollectPuzzle : MonoBehaviour
             Debug.Log("Door has been destroyed");
             Destroy(door);
             Destroy(effectIns, 2f);
+
         }
         else
             Debug.Log("You can't trigger this with other tag!!");
