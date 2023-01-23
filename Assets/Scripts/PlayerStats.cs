@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterMovement : MonoBehaviour
+public class PlayerStats : MonoBehaviour
 {
+    [SerializeField] 
     public float speed = 5f;
     private float rotationSpeed = 150f;
+    public float startingHealth = 100f;
+    private float health;
 
     private Rigidbody rb;
 
@@ -13,6 +16,7 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        health = startingHealth;
     }
 
     
