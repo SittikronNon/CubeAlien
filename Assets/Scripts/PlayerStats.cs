@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class PlayerStats : MonoBehaviour
 {
@@ -9,9 +9,10 @@ public class PlayerStats : MonoBehaviour
     public float speed = 5f;
     private float rotationSpeed = 150f;
 
-    public Slider slider;
-    public float startingHealth = 100f;
-    private float health;
+    public int maxHealth = 100;
+    public int currentHealth;
+    public HealthBar healthBar;
+
 
     
     private Rigidbody rb;
@@ -19,15 +20,26 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(currentHealth);
         rb = GetComponent<Rigidbody>();
-        health = startingHealth;
+
     }
 
-    public void SetHealth()
+    public void Update()
     {
-        slider.value = health;
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            TakeDamage(20);
+        }
     }
-    
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        healthBar.SetMaxHealth(currentHealth);
+    }
 
     private void FixedUpdate()
     {
