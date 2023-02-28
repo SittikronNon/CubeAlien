@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
     [SerializeField] 
     public float speed = 5f;
     private float rotationSpeed = 150f;
+
+    public Slider slider;
     public float startingHealth = 100f;
     private float health;
 
+    
     private Rigidbody rb;
 
     // Start is called before the first frame update
@@ -19,6 +23,10 @@ public class PlayerStats : MonoBehaviour
         health = startingHealth;
     }
 
+    public void SetHealth()
+    {
+        slider.value = health;
+    }
     
 
     private void FixedUpdate()
