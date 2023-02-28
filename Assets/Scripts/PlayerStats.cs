@@ -21,7 +21,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(currentHealth);
+        healthBar.SetMaxHealth(maxHealth);
         rb = GetComponent<Rigidbody>();
 
     }
@@ -38,7 +38,7 @@ public class PlayerStats : MonoBehaviour
     {
         currentHealth -= damage;
 
-        healthBar.SetMaxHealth(currentHealth);
+        healthBar.SetHealth(currentHealth);
     }
 
     private void FixedUpdate()
