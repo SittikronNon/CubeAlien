@@ -7,10 +7,13 @@ public class Enemy : MonoBehaviour
 {
     public float startHealth = 100f;
     private float health;
+    public int enemyDamage = 15;
+
+    public PlayerStats player;
 
     //private bool isDead = false;
 
-    public Image healthBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,5 +41,13 @@ public class Enemy : MonoBehaviour
     public void Dead()
     {
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            player.TakeDamage(enemyDamage);
+        }
     }
 }

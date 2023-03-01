@@ -299,7 +299,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244923711}
-  m_LocalRotation: {x: 0.45034745, y: 0.000000015362776, z: -0.0000000077488505, w: 0.89285344}
+  m_LocalRotation: {x: 0.45034745, y: -0.000000015362774, z: 0.000000007748849, w: 0.89285344}
   m_LocalPosition: {x: 8.14, y: 16.02, z: -7.168111}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1486,7 +1486,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694707159}
-  m_LocalRotation: {x: 0.45034745, y: 0.000000015362776, z: -0.0000000077488505, w: 0.89285344}
+  m_LocalRotation: {x: 0.45034745, y: -0.000000015362774, z: 0.000000007748849, w: 0.89285344}
   m_LocalPosition: {x: 8.14, y: 16.02, z: -7.168111}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2634,6 +2634,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2023768245, guid: d066b228fe25c85489ce99fba0fa5ad3, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1476981552}
+    - target: {fileID: 2023768245, guid: d066b228fe25c85489ce99fba0fa5ad3, type: 3}
       propertyPath: startHealth
       value: 250
       objectReference: {fileID: 0}
@@ -2687,6 +2691,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d066b228fe25c85489ce99fba0fa5ad3, type: 3}
+--- !u!4 &1393893109 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9069138068684880010, guid: d066b228fe25c85489ce99fba0fa5ad3, type: 3}
+  m_PrefabInstance: {fileID: 1393893108}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1466202757 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8150712470928999540, guid: cb08503fdf3603e4891e890a7b9f9b57, type: 3}
@@ -2719,6 +2728,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 134038008990873889, guid: cb08503fdf3603e4891e890a7b9f9b57, type: 3}
   m_PrefabInstance: {fileID: 134038008050862606}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1476981552 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 134038008990873892, guid: cb08503fdf3603e4891e890a7b9f9b57, type: 3}
+  m_PrefabInstance: {fileID: 134038008050862606}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bac74a46b0b1f041adc9f4b5392a77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1528679818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3320,6 +3340,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePositionTransform: {fileID: 1476981551}
+--- !u!1 &2032163571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2032163572}
+  - component: {fileID: 2032163573}
+  m_Layer: 0
+  m_Name: GunPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2032163572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032163571}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.78}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1393893109}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2032163573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032163571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a2276b73d05e3f448e522594f2e32d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawnPoint: {fileID: 2032163572}
+  bulletPrefab: {fileID: 6214067765481955842, guid: 7ad9f9ead569ff3478250cd18959e03a, type: 3}
+  bulletSpeed: 10
+  isHolding: 0
+  fireRate: 0.75
 --- !u!4 &2048305012 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1686021177305034388, guid: ebee340de387f334f9ac44e044abd8fb, type: 3}
