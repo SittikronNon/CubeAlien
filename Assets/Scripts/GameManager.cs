@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject enemy;
     public GameObject spawnPoint;
+    public bool isPause = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +18,15 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    void ResumeGame()
+    {
+        Time.timeScale = 1;
     }
 }

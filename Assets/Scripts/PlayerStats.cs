@@ -13,6 +13,7 @@ public class PlayerStats : MonoBehaviour
     public int currentHealth;
     public HealthBar healthBar;
 
+    public float knockbackForce = 100f;
 
     
     private Rigidbody rb;
@@ -28,6 +29,7 @@ public class PlayerStats : MonoBehaviour
 
     public void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.F))
         {
             TakeDamage(20);
@@ -36,13 +38,23 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-
+        currentHealth -= damage;   
         healthBar.SetHealth(currentHealth);
+        if (currentHealth == 0)
+        {
+            Die();
+        }
+
+    }
+    
+    private void Die()
+    {
+        Destroy(this.gameObject);
     }
 
     private void FixedUpdate()
     {
+
         float vertAxis = Input.GetAxis("Vertical");
         float horAxis = Input.GetAxis("Horizontal");
         rb.velocity = (transform.forward * vertAxis) * speed * Time.deltaTime;

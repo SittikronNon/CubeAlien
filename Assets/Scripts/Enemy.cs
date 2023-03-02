@@ -9,6 +9,9 @@ public class Enemy : MonoBehaviour
     private float health;
     public int enemyDamage = 15;
 
+    public float KBForce;
+    public float KBCounter;
+
     public PlayerStats player;
 
     //private bool isDead = false;

@@ -40,6 +40,7 @@ public class Bullets : MonoBehaviour
     public void Damage(Transform enemy)
     {
         Enemy e = enemy.GetComponent<Enemy>();
+        
 
         if (e != null)
         {
